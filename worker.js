@@ -1,6 +1,7 @@
 const filesToCache = [
 	"us1.bin",
 	"us2.bin",
+	"favicon.ico",
 	"Emulatrix.css",
 	"Emulatrix.htm",
 	"Emulatrix_SegaGenesis.htm",
