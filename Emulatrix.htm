@@ -7,23 +7,16 @@
 	</head>
 	<body>
 		<script>
-			function getBooleanSetting(settingName){try{var name = "emulatrix" + settingName;var nameEQ = name + "=";var ca = document.cookie.split(";");for(var i=0;i < ca.length;i++){var c = ca[i];while (c.charAt(0)==" "){c = c.substring(1,c.length);}if (c.indexOf(nameEQ) == 0){if (c.substring(nameEQ.length,c.length)=="true"){return true;}else{return false;}}}}catch(err){}return true;}
-			function setBooleanSetting(settingName,settingValue){try{var name = "emulatrix" + settingName;var value = String(settingValue);var days = 999;var expires = "";if (days){var date = new Date();date.setTime(date.getTime() + (days*24*60*60*1000));expires = "; expires=" + date.toUTCString() + "; SameSite=Lax";}document.cookie = name + "=" + (value || "")  + expires + "; Secure; path=/";}catch(err){}}
 			function usingiOS(){return !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)}
 			function usingSafari(){return navigator.userAgent.toLowerCase().indexOf("safari")>-1 && navigator.userAgent.toLowerCase().indexOf("chrome")==-1}
 
-			var GAME_SOUND_ENABLED = getBooleanSetting("GAME_SOUND_ENABLED");
+			var URL = decodeURI(parent.window.location.href);
+			var GAME_SOUND_ENABLED = true;
 			var ROMDATA = "";
-			var ROMNAME = "";
+			var ROMNAME = "us2.bin";
 
-			if (decodeURI(parent.window.location.href).includes("bios=us1"))
-				{
-				ROMNAME = "us1.bin";
-				}
-				else
-				{
-				ROMNAME = "us2.bin";
-				}
+			if (URL.includes("bios=us1")) ROMNAME = "us1.bin";
+			if (URL.includes("sound=off")) GAME_SOUND_ENABLED = false;
 
 			function runEmulator()
 				{

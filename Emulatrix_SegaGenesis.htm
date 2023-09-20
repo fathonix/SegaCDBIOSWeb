@@ -54,6 +54,9 @@
 				settings_file += "custom_viewport_x = 0\n";
 				settings_file += "custom_viewport_y = 0\n";
 
+				// SETTING AUDIO TO BE ENABLED
+				settings_file += "audio_enable = " + parent.GAME_SOUND_ENABLED + "\n";
+
 				// SETTING THE AUDIO LATENCY
 				settings_file += "audio_latency = 128\n";
 
@@ -136,24 +139,6 @@
 
 					// UPDATING THE CANVAS SIZE
 					Module.setCanvasSize(container_width,container_height,true);
-					}
-					catch(err)
-					{
-					}
-				}
-
-			function toggleSound(GAME_SOUND_ENABLED)
-				{
-				try
-					{
-					// CHECKING IF THE EMULATOR IS NOT STARTED AND PREVENTING TO GO ANY FURTHER IF THAT'S THE CASE
-					if (Emulator_started==false){return}
-
-					// RESUMING THE EMULATION
-					Emulator_running = true;
-
-					// UPDATING THE SOUND STATUS ACCORDING THE USER SETTING
-					Emulator_soundEnabled = GAME_SOUND_ENABLED;
 					}
 					catch(err)
 					{
