@@ -1,5 +1,4 @@
 const filesToCache = [
-	"/",
 	"us1.bin",
 	"us2.bin",
 	"Emulatrix.css",
