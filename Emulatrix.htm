@@ -14,6 +14,16 @@
 
 			var GAME_SOUND_ENABLED = getBooleanSetting("GAME_SOUND_ENABLED");
 			var ROMDATA = "";
+			var ROMNAME = "";
+
+			if (decodeURI(parent.window.location.href).includes("bios=us1"))
+				{
+				ROMNAME = "us1.bin";
+				}
+				else
+				{
+				ROMNAME = "us2.bin";
+				}
 
 			function runEmulator()
 				{
@@ -23,7 +33,7 @@
 						document.getElementById("container").contentDocument.location.replace("about:blank");
 
 						var xhttp = new XMLHttpRequest();
-  						xhttp.open("GET", "bios.bin");
+  						xhttp.open("GET", ROMNAME);
 						xhttp.overrideMimeType("application/octet-stream");
 						xhttp.responseType = "arraybuffer";
   						xhttp.onload = function(ev)
